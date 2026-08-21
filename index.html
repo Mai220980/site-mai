@@ -248,6 +248,46 @@
   .pr-submit:hover{background:var(--terracotta-deep);}
   @media(max-width:700px){.pr-grid{grid-template-columns:1fr;}}
 
+  /* ---------- AVIS CLIENTS ---------- */
+  .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px;}
+  .avis-card{
+    background:#fff;border-radius:16px;padding:28px 26px;
+    box-shadow:0 4px 18px rgba(87,62,44,0.06);
+    display:flex;flex-direction:column;
+  }
+  .avis-card .stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:14px;}
+  .avis-card p{font-style:italic;color:var(--brown);flex:1;margin:0 0 16px;}
+  .avis-card .avis-auteur{font-weight:600;color:var(--terracotta-deep);font-size:0.9rem;}
+  .avis-cta{text-align:center;margin-top:40px;}
+  .avis-empty{
+    max-width:520px;margin:10px auto 0;text-align:center;
+    background:#fff;border:2px dashed var(--terracotta);border-radius:20px;
+    padding:34px 30px;color:var(--terracotta-deep);
+  }
+  .avis-empty p{margin:0 0 8px;}
+  .avis-empty p:last-child{margin-bottom:0;}
+  @media(max-width:900px){.avis-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:700px){.avis-grid{grid-template-columns:1fr;}}
+
+  .avis-form-card{
+    display:none;
+    scroll-margin-top:90px;
+    margin-top:36px;background:#fff;border-radius:20px;padding:34px 32px;
+    box-shadow:0 4px 18px rgba(87,62,44,0.07);
+  }
+  .avis-form-card:target{display:block;animation:pr-reveal 0.4s ease;}
+  .avis-form-card h3{text-align:center;color:var(--terracotta-deep);font-size:1.4rem;margin:0 0 10px;}
+  .avis-form-card .pr-lede{text-align:center;max-width:640px;margin:0 auto 26px;font-size:0.92rem;color:var(--terracotta-deep);}
+  .avis-form-card label{display:block;font-size:0.78rem;font-weight:600;margin-bottom:5px;color:var(--terracotta-deep);}
+  .avis-form-card input[type=text],
+  .avis-form-card select,
+  .avis-form-card textarea{
+    width:100%;padding:11px 13px;border:1px solid #E3CFC0;border-radius:10px;
+    font-family:'Poppins',sans-serif;font-size:0.9rem;color:var(--brown);
+    background:var(--cream-soft);
+  }
+  .avis-form-card textarea{min-height:90px;resize:vertical;}
+
   /* ---------- CONTACT / FOOTER ---------- */
   .contact-pills{
     display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:0 6vw 40px;
@@ -286,6 +326,7 @@
     <a href="#apropos">À propos</a>
     <a href="#accompagnements">Accompagnements</a>
     <a href="#ateliers">Ateliers de groupe</a>
+    <a href="#avis">Avis</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -513,7 +554,6 @@
       <form action="https://formsubmit.co/mai.delienne@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Nouvelle pré-réservation — Atelier Maï">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://mai220980.github.io/site-mai/merci.html">
         <input type="hidden" name="_autoresponse" value="Bonjour, nous avons bien reçu votre pré-réservation pour l'atelier Relaxation Guidée du 16 septembre 2026 (18h30-19h30) à Boujan-sur-Libron. Votre place sera définitivement assurée dès réception de votre règlement de 15 euros par personne, selon le mode que vous avez choisi : Wero au 06.40.11.06.62, ou espèces à régler en personne au cabinet, 3 rue de Rocagel, 34500 Béziers, au plus tard 48h avant l'atelier. À très vite, Maï — 06.40.11.06.62 — mai.delienne@gmail.com">
 
@@ -528,7 +568,7 @@
           </div>
           <div>
             <label>E-mail *</label>
-            <input type="email" name="Email" required>
+            <input type="email" name="email" required>
           </div>
           <div>
             <label>Téléphone *</label>
@@ -572,6 +612,66 @@
         </label>
 
         <button type="submit" class="pr-submit">Envoyer ma pré-réservation</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ================= AVIS CLIENTS ================= -->
+<div id="avis">
+  <section>
+    <div class="eyebrow" style="text-align:center;">Témoignages</div>
+    <h2 class="section-title">Ce qu'en disent les participants</h2>
+    <p class="section-lede">Les retours des participants seront partagés ici au fil du temps.</p>
+
+    <div class="avis-empty">
+      <p>✦ Aucun avis pour le moment ✦</p>
+      <p style="font-weight:600;">Soyez la première personne à partager votre expérience !</p>
+    </div>
+
+    <div class="avis-cta">
+      <a class="btn" style="background:var(--terracotta);color:#fff;" href="#laisser-avis">Laisser un avis</a>
+    </div>
+
+    <div class="avis-form-card" id="laisser-avis">
+      <a href="#avis" style="float:right;font-size:0.8rem;color:var(--terracotta-deep);text-decoration:none;font-weight:600;">✕ Fermer</a>
+      <h3>Partager votre avis</h3>
+      <p class="pr-lede">Votre avis me sera envoyé par e-mail. Après l'avoir lu, je pourrai l'ajouter sur cette page pour le partager avec les futurs participants.</p>
+
+      <form action="https://formsubmit.co/mai.delienne@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nouvel avis client — site Maï">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://mai220980.github.io/site-mai/merci-avis.html">
+
+        <div class="pr-grid">
+          <div>
+            <label>Votre nom *</label>
+            <input type="text" name="Nom" required>
+          </div>
+          <div>
+            <label>Note *</label>
+            <select name="Note" required>
+              <option value="">Choisir...</option>
+              <option value="★★★★★ (5/5)">★★★★★ (5/5)</option>
+              <option value="★★★★☆ (4/5)">★★★★☆ (4/5)</option>
+              <option value="★★★☆☆ (3/5)">★★★☆☆ (3/5)</option>
+              <option value="★★☆☆☆ (2/5)">★★☆☆☆ (2/5)</option>
+              <option value="★☆☆☆☆ (1/5)">★☆☆☆☆ (1/5)</option>
+            </select>
+          </div>
+          <div class="full">
+            <label>Atelier ou séance concernée (facultatif)</label>
+            <input type="text" name="Atelier concerné" placeholder="Ex : Relaxation Guidée du 16 septembre">
+          </div>
+        </div>
+
+        <div style="margin-bottom:22px;">
+          <label>Votre avis *</label>
+          <textarea name="Avis" required placeholder="Partagez votre ressenti, votre expérience..."></textarea>
+        </div>
+
+        <button type="submit" class="pr-submit">Envoyer mon avis</button>
       </form>
     </div>
   </section>

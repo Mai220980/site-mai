@@ -250,6 +250,7 @@
 
   /* ---------- AVIS CLIENTS ---------- */
   .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px;}
+  .avis-grid.avis-grid-1{grid-template-columns:minmax(0,480px);justify-content:center;}
   .avis-card{
     background:#fff;border-radius:16px;padding:28px 26px;
     box-shadow:0 4px 18px rgba(87,62,44,0.06);
@@ -620,9 +621,12 @@
     <h2 class="section-title">Ce qu'en disent les participants</h2>
     <p class="section-lede">Les retours des participants seront partagés ici au fil du temps.</p>
 
-    <div class="avis-empty">
-      <p>✦ Aucun avis pour le moment ✦</p>
-      <p style="font-weight:600;">Soyez la première personne à partager votre expérience !</p>
+    <div class="avis-grid avis-grid-1">
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p>« J'ai fait appel à Maï à plusieurs reprises. Elle m'a soulagée de douleurs insupportables. Ses canalisations m'ont aidée et m'ont donné la bonne direction grâce à sa connexion aux guides et aux défunts. Elle m'a aussi soulagée de brûlures graves (de plus, à distance). Grâce à ses soins énergétiques, elle m'a aidée à gérer le stress. Un grand merci à toi Maï. Gratitude. »</p>
+        <div class="avis-auteur">— Marie</div>
+      </div>
     </div>
 
     <div class="avis-cta">

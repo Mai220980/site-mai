@@ -251,6 +251,7 @@
   /* ---------- AVIS CLIENTS ---------- */
   .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px;}
   .avis-grid.avis-grid-1{grid-template-columns:minmax(0,480px);justify-content:center;}
+  .avis-grid.avis-grid-2{grid-template-columns:repeat(2,minmax(0,380px));justify-content:center;}
   .avis-card{
     background:#fff;border-radius:16px;padding:28px 26px;
     box-shadow:0 4px 18px rgba(87,62,44,0.06);
@@ -269,6 +270,7 @@
   .avis-empty p:last-child{margin-bottom:0;}
   @media(max-width:900px){.avis-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:700px){.avis-grid{grid-template-columns:1fr;}}
+  @media(max-width:700px){.avis-grid.avis-grid-2{grid-template-columns:1fr;}}
 
   .avis-form-card{
     display:none;
@@ -621,11 +623,16 @@
     <h2 class="section-title">Avis &amp; témoignages</h2>
     <p class="section-lede">Les retours de celles et ceux qui m'ont fait confiance seront partagés ici au fil du temps.</p>
 
-    <div class="avis-grid avis-grid-1">
+    <div class="avis-grid avis-grid-2">
       <div class="avis-card">
         <div class="stars">★★★★★</div>
         <p>« J'ai fait appel à Maï à plusieurs reprises. Elle m'a soulagée de douleurs insupportables. Ses canalisations m'ont aidée et m'ont donné la bonne direction grâce à sa connexion aux guides et aux défunts. Elle m'a aussi soulagée de brûlures graves (de plus, à distance). Grâce à ses soins énergétiques, elle m'a aidée à gérer le stress. Un grand merci à toi Maï. Gratitude. »</p>
         <div class="avis-auteur">— Marie</div>
+      </div>
+      <div class="avis-card">
+        <div class="stars">★★★★★</div>
+        <p>« J'ai fait une séance avec Maï. Une personne très agréable, douce et toujours à l'écoute. Grâce à elle, j'ai pu dire au revoir à une personne partie trop tôt... Encore merci à toi. »</p>
+        <div class="avis-auteur">— Betty</div>
       </div>
     </div>
 

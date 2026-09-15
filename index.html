@@ -203,6 +203,46 @@
   .atelier-card td{padding:10px;border-bottom:1px solid var(--cream);text-align:left;}
   .atelier-card td:first-child{font-weight:600;color:var(--terracotta-deep);width:35%;}
 
+  /* ---------- JOURNÉE DÉCOUVERTE ---------- */
+  .decouverte-wrap{background:var(--cream-soft);}
+  .decouverte-card{
+    max-width:640px;margin:30px auto 0;background:#fff;border:2px dashed var(--terracotta);
+    border-radius:20px;padding:34px 30px;text-align:center;
+  }
+  .decouverte-card table{width:100%;margin-top:18px;border-collapse:collapse;font-size:0.92rem;}
+  .decouverte-card td{padding:10px;border-bottom:1px solid var(--cream);text-align:left;}
+  .decouverte-card td:first-child{font-weight:600;color:var(--terracotta-deep);width:38%;}
+
+  /* ---------- PROMO JOURNÉE DÉCOUVERTE (accueil) ---------- */
+  .promo-decouverte{
+    background:var(--terracotta);color:#fff;text-align:center;
+    padding:34px 6vw;margin:0;
+  }
+  .promo-decouverte .promo-badge{
+    display:inline-block;background:rgba(255,255,255,0.18);color:#fff;
+    padding:5px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;
+  }
+  .promo-decouverte h2{
+    font-family:'Playfair Display',serif;font-size:2.3rem;margin:0 0 12px;color:#fff;line-height:1.2;
+  }
+  .promo-decouverte .promo-tagline{
+    font-style:italic;font-size:1.05rem;opacity:0.95;margin:0 auto 20px;max-width:480px;line-height:1.5;
+  }
+  .promo-decouverte .promo-date{
+    font-family:'Playfair Display',serif;font-weight:700;font-size:1.7rem;
+    margin:0 0 8px;letter-spacing:0.5px;color:#fff;
+  }
+  .promo-decouverte .promo-sub{
+    font-size:0.95rem;opacity:0.95;margin:0 auto 18px;line-height:1.6;max-width:520px;
+  }
+  .promo-decouverte .btn{background:#fff;color:var(--terracotta-deep);}
+  .promo-decouverte .btn:hover{background:var(--cream-soft);}
+  @media(max-width:700px){
+    .promo-decouverte h2{font-size:1.6rem;}
+    .promo-decouverte .promo-date{font-size:1.3rem;}
+  }
+
   /* ---------- PRÉ-RÉSERVATION ---------- */
   .prereservation-card{
     display:none;
@@ -344,6 +384,15 @@
     <h1>MAÏ</h1>
     <p class="hero-tagline">Accompagnements pour retrouver équilibre, apaisement et clarté intérieure</p>
   </div>
+</div>
+
+<div class="promo-decouverte" id="journee-decouverte">
+  <div class="promo-badge">✨ Événement spécial</div>
+  <h2>Journée Découverte — Guidance &amp; Médiumnité</h2>
+  <p class="promo-tagline">Guidance &amp; médiumnité offertes le temps d'une séance</p>
+  <p class="promo-date">Samedi 26 septembre</p>
+  <p class="promo-sub">9h–12h et 14h–18h · 3 rue de Rocagel, Béziers · Sur réservation uniquement</p>
+  <a class="btn" href="tel:0640110662">📞 Réserver au 06 40 11 06 62</a>
 </div>
 
 <section>
@@ -537,16 +586,8 @@
 
     <div class="atelier-card">
       <div class="eyebrow">Prochain atelier</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin:10px 0 6px;color:var(--terracotta-deep);">Relaxation Guidée</h3>
-      <table>
-        <tr><td>Date</td><td>Mercredi 16 septembre 2026</td></tr>
-        <tr><td>Horaire</td><td>18h30 – 19h30</td></tr>
-        <tr><td>Lieu</td><td>Boujan-sur-Libron</td></tr>
-        <tr><td>Tarif</td><td>15&nbsp;€ — uniquement sur réservation</td></tr>
-        <tr><td>À prévoir</td><td>Tenue confortable, un tapis pour vous allonger, un plaid ou un coussin, et une bouteille d'eau</td></tr>
-      </table>
-      <p style="margin:22px 0 0;font-weight:600;color:var(--terracotta-deep);">✦ Places limitées — réservez vite ✦</p>
-      <a class="btn" style="background:var(--terracotta);color:#fff;" href="#prereservation">Réserver ma place</a>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin:10px 0 6px;color:var(--terracotta-deep);">À venir prochainement</h3>
+      <p style="margin:14px 0 0;color:var(--brown);line-height:1.6;">Aucun atelier n'est programmé pour le moment. La date, l'horaire, le lieu et le tarif du prochain atelier seront annoncés ici dès qu'ils seront fixés — n'hésitez pas à repasser bientôt !</p>
     </div>
 
     <div class="prereservation-card" id="prereservation">
@@ -669,7 +710,7 @@
           </div>
           <div class="full">
             <label>Atelier ou séance concernée (facultatif)</label>
-            <input type="text" name="Atelier concerné" placeholder="Ex : Relaxation Guidée du 16 septembre">
+            <input type="text" name="Atelier concerné" placeholder="Ex : Séance individuelle, Atelier de groupe...">
           </div>
         </div>
 

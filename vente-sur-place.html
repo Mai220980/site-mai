@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#8B5143">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bon sur place">
+<link rel="apple-touch-icon" href="images/bon-logo.png">
+<link rel="icon" href="images/bon-logo.png">
+<title>Bon cadeau sur place — Maï</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  :root{--terracotta:#8B5143;--terracotta-deep:#6E3F35;--cream:#F6E4D6;--cream-soft:#FBF2E9;--brown:#573E2C;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Poppins',sans-serif;color:var(--brown);background:var(--cream);line-height:1.5;}
+  header{background:var(--terracotta);color:#fff;text-align:center;padding:18px 16px 14px;}
+  header .t{font-family:'Sacramento',cursive;font-size:2.4rem;line-height:1;}
+  header .s{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.9;margin-top:4px;}
+  main{max-width:520px;margin:0 auto;padding:18px 16px 40px;}
+  label{display:block;font-size:0.8rem;font-weight:600;margin:14px 0 5px;color:var(--terracotta-deep);}
+  input,select,textarea{width:100%;font-family:'Poppins',sans-serif;font-size:16px;color:var(--brown);background:#fff;border:1px solid rgba(139,81,67,0.35);border-radius:12px;padding:12px 14px;}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--terracotta);outline-offset:1px;}
+  textarea{min-height:70px;resize:vertical;}
+  .ligne{display:flex;gap:12px;} .ligne > div{flex:1;min-width:0;}
+  .choix{display:flex;flex-wrap:wrap;gap:8px;}
+  .choix label{margin:0;font-weight:500;font-size:0.9rem;color:var(--brown);display:flex;align-items:center;gap:8px;border:1px solid rgba(139,81,67,0.35);background:var(--cream-soft);border-radius:30px;padding:10px 16px;cursor:pointer;min-height:44px;}
+  .choix input{width:auto;accent-color:var(--terracotta);}
+  .aide{font-size:0.78rem;opacity:.8;margin-top:4px;}
+  .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-top:14px;font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;border:none;border-radius:30px;cursor:pointer;text-decoration:none;}
+  .btn-main{background:var(--terracotta);color:#fff;}
+  .btn-sec{background:#fff;color:var(--terracotta-deep);border:1.5px solid var(--terracotta);}
+  .btn:disabled{opacity:.5;cursor:wait;}
+  .erreur{color:#9B2C22;font-weight:600;font-size:0.9rem;margin-top:12px;}
+  .carte{background:var(--cream-soft);border:1px solid var(--terracotta);border-radius:18px;padding:20px;text-align:center;margin-top:10px;}
+  .num{font-family:'Playfair Display',serif;font-size:2rem;letter-spacing:1px;color:var(--terracotta-deep);margin:6px 0;}
+  .cache{display:none !important;}
+</style>
+</head>
+<body>
+<header>
+  <div class="t">Bon cadeau sur place</div>
+  <div class="s">Espace privé · Maï</div>
+</header>
+
+<main>
+  <!-- Code (demandé une seule fois sur ce téléphone) -->
+  <section id="ecran-code" class="cache">
+    <label for="code">Votre code personnel</label>
+    <input id="code" inputmode="numeric" autocomplete="off" maxlength="12">
+    <button class="btn btn-main" id="btn-code" type="button">Valider</button>
+    <p class="aide">Le code est mémorisé sur ce téléphone.</p>
+  </section>
+
+  <!-- Formulaire -->
+  <form id="form" class="cache" novalidate>
+    <label for="presta">Prestation</label>
+    <select id="presta">
+      <option value="Harmonisation énergétique des chakras|40">Harmonisation des chakras – 40 €</option>
+      <option value="Séance de médiumnité, guidances|50">Médiumnité, guidances – 50 €</option>
+      <option value="Soin corps âme esprit|60">Soin corps âme esprit – 60 €</option>
+      <option value="Soin à distance|50">Soin à distance – 50 €</option>
+      <option value="Soin complet|80" selected>Soin complet – 80 €</option>
+      <option value="Contact défunt|60">Contact défunt – 60 €</option>
+      <option value="Sophrologie|50">Sophrologie – 50 €</option>
+      <option value="libre|0">Montant libre</option>
+    </select>
+    <div id="bloc-libre" class="cache">
+      <label for="montant">Montant (€)</label>
+      <input id="montant" type="number" inputmode="numeric" min="5" step="5" placeholder="Ex. 100">
+    </div>
+
+    <div class="ligne">
+      <div><label for="pour">Offert à *</label><input id="pour" maxlength="40" autocomplete="off"></div>
+      <div><label for="de">De la part de</label><input id="de" maxlength="40" autocomplete="off"></div>
+    </div>
+    <label for="message">Petit message (facultatif)</label>
+    <textarea id="message" maxlength="160"></textarea>
+
+    <label>Paiement reçu</label>
+    <div class="choix">
+      <label><input type="radio" name="paiement" value="Espèces" checked> Espèces</label>
+      <label><input type="radio" name="paiement" value="Wero"> Wero</label>
+      <label><input type="radio" name="paiement" value="PayPal"> PayPal</label>
+      <label><input type="radio" name="paiement" value="Chèque"> Chèque</label>
+    </div>
+
+    <label for="email">E-mail du client (facultatif)</label>
+    <input id="email" type="email" inputmode="email" autocomplete="off" placeholder="Pour lui envoyer le bon en PDF">
+    <p class="aide">Si vous le remplissez, le client reçoit le bon par mail tout de suite.</p>
+
+    <div class="erreur" id="erreur" role="alert"></div>
+    <button class="btn btn-main" id="btn-creer" type="submit">Créer le bon</button>
+  </form>
+
+  <!-- Résultat -->
+  <section id="resultat" class="cache">
+    <div class="carte">
+      <div>Bon cadeau créé</div>
+      <div class="num" id="r-num"></div>
+      <div id="r-info" style="font-size:0.9rem"></div>
+    </div>
+    <a class="btn btn-main" id="btn-ouvrir" target="_blank" rel="noopener">Ouvrir le bon (PDF)</a>
+    <button class="btn btn-sec cache" id="btn-partager" type="button">Partager / imprimer</button>
+    <button class="btn btn-sec" id="btn-nouveau" type="button">Nouveau bon</button>
+  </section>
+</main>
+
+<script>
+(function(){
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbysKDV1Axp64e1lYjgewb3VJ8jtspKd1IUphambBJoqdG70Np5aeYazLb7xdnA0g8TjBQ/exec";
+  const $ = id => document.getElementById(id);
+  let code = ""; try { code = localStorage.getItem("codeBon") || ""; } catch(e) {}
+  let fichier = null;
+
+  function afficher(ecran){ ["ecran-code","form","resultat"].forEach(id => $(id).classList.toggle("cache", id !== ecran)); }
+  afficher(code ? "form" : "ecran-code");
+
+  $("btn-code").addEventListener("click", () => {
+    code = $("code").value.trim(); if (!code) return;
+    try { localStorage.setItem("codeBon", code); } catch(e) {}
+    afficher("form");
+  });
+
+  $("presta").addEventListener("change", () => $("bloc-libre").classList.toggle("cache", !$("presta").value.startsWith("libre")));
+
+  $("form").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const [nom, prix] = $("presta").value.split("|");
+    const libre = nom === "libre";
+    const d = {
+      surPlace: true, code,
+      presta: libre ? "Participation libre" : nom,
+      montant: libre ? Math.round(Number($("montant").value) || 0) : Number(prix),
+      pour: $("pour").value.trim(), de: $("de").value.trim(), message: $("message").value.trim(),
+      email: $("email").value.trim(),
+      paiement: document.querySelector('input[name="paiement"]:checked').value
+    };
+    let err = "";
+    if (d.montant < 5) err = "Indiquez le montant.";
+    else if (!d.pour) err = "Indiquez à qui le bon est offert.";
+    else if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) err = "L’adresse e-mail n’est pas valide.";
+    $("erreur").textContent = err; if (err) return;
+
+    const b = $("btn-creer"); b.disabled = true; b.textContent = "Création du bon…";
+    try {
+      const rep = await fetch(SCRIPT_URL, { method: "POST", body: JSON.stringify(d) });
+      const res = await rep.json();
+      if (!res.ok) {
+        if (res.erreur === "Code incorrect") { try { localStorage.removeItem("codeBon"); } catch(e) {} code = ""; afficher("ecran-code"); }
+        throw new Error(res.erreur);
+      }
+      const octets = Uint8Array.from(atob(res.pdf), c => c.charCodeAt(0));
+      fichier = new File([octets], "Bon cadeau " + res.numero + ".pdf", { type: "application/pdf" });
+      $("btn-ouvrir").href = URL.createObjectURL(fichier);
+      $("r-num").textContent = res.numero;
+      $("r-info").textContent = d.montant + " € · offert à " + d.pour + (res.envoye ? " · envoyé à " + d.email : "");
+      $("btn-partager").classList.toggle("cache", !(navigator.canShare && navigator.canShare({ files: [fichier] })));
+      afficher("resultat");
+    } catch (e) {
+      $("erreur").textContent = "Le bon n’a pas pu être créé : " + (e.message || "erreur") + ".";
+    } finally {
+      b.disabled = false; b.textContent = "Créer le bon";
+    }
+  });
+
+  $("btn-partager").addEventListener("click", () => { if (fichier) navigator.share({ files: [fichier], title: fichier.name }).catch(() => {}); });
+
+  $("btn-nouveau").addEventListener("click", () => {
+    $("form").reset(); $("bloc-libre").classList.add("cache"); $("erreur").textContent = ""; afficher("form");
+  });
+})();
+</script>
+</body>
+</html>

@@ -56,6 +56,11 @@
 
   <!-- Formulaire -->
   <form id="form" class="cache" novalidate>
+    <label>Occasion</label>
+    <div class="choix">
+      <label><input type="radio" name="occasion" value="noel" checked> 🎄 Noël</label>
+      <label><input type="radio" name="occasion" value="anniversaire"> 🎂 Anniversaire</label>
+    </div>
     <label for="presta">Prestation</label>
     <select id="presta">
       <option value="Harmonisation énergétique des chakras|40">Harmonisation des chakras – 40 €</option>
@@ -136,7 +141,8 @@
       montant: libre ? Math.round(Number($("montant").value) || 0) : Number(prix),
       pour: $("pour").value.trim(), de: $("de").value.trim(), message: $("message").value.trim(),
       email: $("email").value.trim(),
-      paiement: document.querySelector('input[name="paiement"]:checked').value
+      paiement: document.querySelector('input[name="paiement"]:checked').value,
+      occasion: document.querySelector('input[name="occasion"]:checked').value
     };
     let err = "";
     if (d.montant < 5) err = "Indiquez le montant.";

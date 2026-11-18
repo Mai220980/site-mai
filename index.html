@@ -392,6 +392,49 @@
   </div>
 </section>
 
+<!-- ================= OFFRE DE LANCEMENT SOPHROLOGIE (se masque seule après le 30/11/2026) ================= -->
+<style>
+  #offre-sophro .offre{max-width:900px;margin:0 auto;background:var(--cream-soft);border:1px solid rgba(139,81,67,0.35);border-radius:36px;padding:40px 6vw;text-align:center;}
+  #offre-sophro .offre-badge{display:inline-block;background:var(--terracotta);color:#fff;font-size:0.72rem;font-weight:600;letter-spacing:3px;padding:7px 18px;border-radius:30px;}
+  #offre-sophro .offre h2{font-family:'Sacramento',cursive;font-weight:400;font-size:clamp(2.6rem,6vw,3.6rem);color:var(--terracotta-deep);margin:10px 0 0;line-height:1.1;}
+  #offre-sophro .offre-titre{font-family:'Playfair Display',serif;font-size:1.5rem;margin:6px 0 0;}
+  #offre-sophro .offre-bienfaits{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:22px 0;}
+  #offre-sophro .offre-bienfaits span{border:1px solid rgba(139,81,67,0.35);border-radius:30px;padding:7px 16px;font-size:0.85rem;color:var(--terracotta-deep);background:#fff;}
+  #offre-sophro .offre-prix{font-family:'Playfair Display',serif;color:var(--terracotta-deep);}
+  #offre-sophro .offre-prix s{font-size:1.5rem;opacity:.6;margin-right:12px;}
+  #offre-sophro .offre-prix b{font-size:3rem;}
+  #offre-sophro .offre-date{margin:6px 0 0;font-size:0.95rem;}
+  #offre-sophro .offre-boutons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px;}
+  #offre-sophro .offre-boutons a{display:inline-block;background:var(--terracotta);color:#fff;padding:13px 26px;border-radius:30px;font-weight:600;font-size:0.9rem;}
+  #offre-sophro .offre-boutons a.sec{background:#fff;color:var(--terracotta-deep);border:1px solid var(--terracotta);}
+</style>
+<section id="offre-sophro">
+  <div class="offre">
+    <span class="offre-badge">OFFRE DE LANCEMENT</span>
+    <h2>Plus que quelques jours</h2>
+    <p class="offre-titre">Sophrologie : première séance à −50 %</p>
+    <div class="offre-bienfaits"><span>Calmer le mental</span><span>Libérer des blocages</span><span>Mieux dormir</span><span>Gérer le stress</span></div>
+    <div class="offre-prix"><s>50 €</s><b>25 €</b></div>
+    <p class="offre-date">Pour toute réservation <b>avant le 30 novembre</b> · Il ne reste que quelques places</p>
+    <p style="margin:14px 0 0;font-size:0.9rem;">Un accompagnement sur mesure, à votre rythme, chez vous ou à distance.</p>
+    <div class="offre-boutons">
+      <a id="offre-keloa" href="" target="_blank" rel="noopener" style="display:none">Réserver sur Keloa</a>
+      <a href="mailto:mai.delienne@gmail.com?subject=R%C3%A9servation%20s%C3%A9ance%20de%20sophrologie%20-%20offre%20de%20lancement">Réserver par mail</a>
+      <a class="sec" href="https://m.me/mailetincelleinterieure" target="_blank" rel="noopener">Message privé Facebook</a>
+      <a class="sec" href="https://ig.me/m/mai_letincelleinterieure.26" target="_blank" rel="noopener">Message privé Instagram</a>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var KELOA_URL = ""; // lien de réservation Keloa
+  var fin = new Date("2026-12-01T00:00:00+01:00");
+  var bloc = document.getElementById("offre-sophro");
+  if (new Date() >= fin) { bloc.style.display = "none"; return; }
+  if (KELOA_URL) { var k = document.getElementById("offre-keloa"); k.href = KELOA_URL; k.style.display = ""; }
+})();
+</script>
+
 <!-- ================= A PROPOS ================= -->
 <div class="apropos-wrap" id="apropos">
   <section>
